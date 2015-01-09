@@ -1,6 +1,7 @@
 var app = angular.module('DrakeEquation', []);
 
 app.controller('equationController', ['$scope', function($scope){
+
   $scope.R = 7;
   $scope.fp = 0.4;
   $scope.n = 2;

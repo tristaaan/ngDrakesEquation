@@ -4,52 +4,32 @@
   <title>The Drake Equation</title>
   <script src="js/vendor/angular.min.js" type="text/javascript"></script>
   <script src="js/main.js" type="text/javascript"></script>
+  <script src="js/variableDirective.js" type="text/javascript"></script>
 </head>
 <body>
   <h1>The Drake Equation</h1>
   <main ng-app="DrakeEquation">
     <div class="equation" ng-controller="equationController">
-      <section>
-        <em>R</em>
-        <input ng-model="R" type="range" min="1" max="50" step="1" value="{{R}}"> 
-        <span>{{R}}: stars formed per year in our galaxy.</span>
-      </section>
+      <variable name="R" min="1" max="50" step="1"
+      description="Stars formed per year in our galaxy"></variable>
       
-      <section>
-        <em>f<sub>p</sub></em>
-        <input ng-model="fp" type="range" min="0" max="1" step="0.01" value="{{fp}}"> 
-        <span>{{fp}}: fraction of the stars with planets.</span>
-      </section>
+      <variable name="fp" min="0" max="1" step="0.01"
+      description="Fraction of the stars with planets."></variable>
       
-      <section>
-        <em>n<sub>e</sub></em>
-        <input ng-model="n" type="range" min="1" max="7" step="1" value="{{n}}">
-        <span>{{n}}: the average number of planets per star that can potentially support life.</span>
-      </section>
+      <variable name="n" min="1" max="8" step="1"
+      description="Average number of planets per star that can potentially support life."></variable>
       
-      <section>
-        <em>f<sub>l</sub></em>
-        <input ng-model="fl" type="range" min="0" max="1" step="0.01" value="{{fl}}"> 
-        <span>{{fl}}: fraction of the planets that develop life.</span>
-      </section>
+      <variable name="fl" min="0" max="1" step="0.01"
+      description="Fraction of the planets that develop life."></variable>
       
-      <section>
-        <em>f<sub>i</sub></em>
-        <input ng-model="fi" type="range" min="0" max="1" step="0.01" value="{{fi}}"> 
-        <span>{{fi}}: fraction of planets that develop intelligent life.</span>
-      </section>  
-      
-      <section>
-        <em>f<sub>c</sub></em>
-        <input ng-model="fc" type="range" min="0" max="1" step="0.01" value="{{fc}}"> 
-        <span>{{fc}}: fraction of civilizations that develop a technology that emits signals through space.</span>
-      </section>
-      
-      <section>
-        <em>L</em>
-        <input ng-model="L" type="range" min="100" max="5000" step="100" step="0.01" value="{{L}}"> 
-        <span>{{L}}: length of time in Earth years for which these civilizations emit detectable signals.</span>
-      </section>
+      <variable name="fi" min="0" max="1" step="0.01"
+      description="Fraction of planets that develop intelligent life."></variable>
+
+      <variable name="fc" min="0" max="1" step="0.01"
+      description="Fraction of civilizations that develop a technology that emits signals through space."></variable>
+
+      <variable name="L" min="0" max="5000" step="100"
+      description="Length of time in Earth years for which these civilizations emit detectable signals."></variable>
       
       <h2>{{N(R*n*fp*fl*fi*fc*L)}}</h2>
     <div>
