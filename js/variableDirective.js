@@ -1,3 +1,5 @@
+'use strict'
+
 app.directive('variable', function () {
     return {
 		restrict: 'E',
@@ -13,7 +15,7 @@ app.directive('variable', function () {
 	    	description: '@',
 	    	min: '=',
 	    	max: '=',
-	    	step:'=',
+	    	step:'='
 	    },
 		link: function (scope, elem, attrs, ctrl) {
 			console.log('directiveRegistered', scope.val);

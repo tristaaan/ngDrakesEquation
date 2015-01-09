@@ -1,3 +1,5 @@
+'use strict'
+
 var app = angular.module('DrakeEquation', []);
 
 app.controller('equationController', ['$scope', function($scope){
