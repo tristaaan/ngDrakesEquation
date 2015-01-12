@@ -1,0 +1,21 @@
+{
+  "name": "ngDrakesEquation",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tristaaan/ngDrakesEquation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tristaaan/ngDrakesEquation/issues"
+  },
+  "homepage": "https://github.com/tristaaan/ngDrakesEquation",
+  "devDependencies": {
+    "gulp-less": "~2.0.1",
+    "browser-sync": "~1.9.0",
+    "gulp": "~3.8.10"
+  }
+}

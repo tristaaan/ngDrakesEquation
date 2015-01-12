@@ -5,26 +5,27 @@ var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
 gulp.task('less', function () {
-  gulp.src('./css/*.less')
+    gulp.src('./css/*.less')
     .pipe(less({
-      paths: [ path.join(__dirname, 'less', 'includes') ]
+        paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
     .pipe(gulp.dest('./css/'))
     .pipe(reload({ stream:true }));
 });
 
 gulp.task('reload', function(){
-	browserSync.reload();
+    browserSync.reload();
 });
 
 gulp.task('serve', function() {
-  browserSync({
-    server: {
-      baseDir: '.'
-    }
-  });
+    browserSync({
+        server: {
+            baseDir: '.'
+        }
+    });
 
-  gulp.watch('css/*.less', ['less', 'reload']);
-  gulp.watch(['*.html', 'js/**/*.js'], {cwd:'.'}, reload);
+    gulp.watch('css/*.less', ['less', 'reload']);
+    gulp.watch(['*.html', 'js/**/*.js'], {cwd:'.'}, reload);
 });
 
+gulp.task('default', ['serve']);
