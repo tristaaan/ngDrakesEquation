@@ -2,13 +2,11 @@
 
 app.directive('variable', function () {
     return {
-        restrict: 'E',
-        template: '<section>' +
-            '<em ng-bind-html="name | nameFilter"></em>' +
-            '<input type="range" ng-model="val" ' +
+        restrict: 'A',
+        template: '<td><em ng-bind-html="name | nameFilter"></em></td>' +
+            '<td><input type="range" ng-model="val" ' +
             'min="{{min}}" max="{{max}}" step="{{step}}" value="{{val}}">' +
-            '<span>{{description}} : {{val}}</span>' +
-            '</section>',
+            '{{description}}</td><td>{{val}}</td>',
         scope: {
             name: '@',
             val: '=name',
@@ -16,9 +14,6 @@ app.directive('variable', function () {
             min: '=',
             max: '=',
             step:'='
-        },
-        link: function (scope, elem, attrs, ctrl) {
-            console.log('directiveRegistered', scope.val);
         }
     };
 });

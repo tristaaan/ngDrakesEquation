@@ -1,27 +1,62 @@
-section{
-    padding: 1em 0;
+@input-slider-width: 90%;
+@input-slider-width-mobile: 110%;
 
+main{
+    margin: 0px auto;
+    text-align: center;
+    font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
-em{
-    font-weight: bold;
-    font-size: 1.2em;
-}
+table{
+    border-collapse: collapse;
+    margin: 0px auto;
+    background-color: white;
+    tr{
+        td{
+            border-width: 1px;
+            border-style: solid;
+            border-color: gray;
+            padding: 1.2em;
+            text-align: center;
+            em{
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+            input{ 
+                display: block;
+                width: @input-slider-width;
+                margin-left: (100% - @input-slider-width) / 2;
+                margin-bottom: 8px;
+            }
+        }
 
-input{
-    width: 120px;
+        td:first-child, td:last-child{
+            width: 2em;
+            text-align: center;
+        }
+
+        td:first-child{
+            font-family: serif;
+            background-color: #eee;
+        }
+    }
 }
 
 @media screen and (max-width: 400px){
-    .equation > section:last-of-type{
-        margin-bottom: 100px;
+    table{
+        margin-bottom: 120px;
     } 
 
+    table tr td input{
+        width: @input-slider-width-mobile;
+        margin-left: (100% - @input-slider-width-mobile) / 2;
+    }
+
     h2{
-        background-color: rgba(255,255,255,0.8);
+        margin: 0;
+        padding: 1em 0;
         position: fixed;
         bottom: 0;
-        padding: 1em 0;
-        margin: 0;
+        background-color: rgba(255,255,255,0.8);
     }
 }

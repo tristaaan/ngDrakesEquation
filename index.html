@@ -1,5 +1,6 @@
 <html>
 <head>
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <title>The Drake Equation</title>
     <script src="js/vendor/angular.min.js" type="text/javascript"></script>
@@ -8,30 +9,31 @@
     <script src="js/variableDirective.js" type="text/javascript"></script>
 </head>
 <body>
-    <h1>The Drake Equation</h1>
     <main ng-app="DrakeEquation">
+        <h1>The Drake Equation</h1>
         <div class="equation" ng-controller="equationController">
-            <variable name="R" min="1" max="50" step="1"
-            description="Stars formed per year in our galaxy"></variable>
+            <table>
+                <tr variable name="R" min="1" max="50" step="1"
+                description="Stars formed per year in our galaxy."></tr>
 
-            <variable name="fp" min="0" max="1" step="0.01"
-            description="Fraction of the stars with planets."></variable>
+                <tr variable name="fp" min="0" max="1" step="0.01"
+                description="Fraction of the stars with planets."></tr>
 
-            <variable name="n" min="1" max="8" step="1"
-            description="Average number of planets per star that can potentially support life."></variable>
+                <tr variable name="n" min="1" max="8" step="1"
+                description="Average number of planets per star that can potentially support life."></tr>
 
-            <variable name="fl" min="0" max="1" step="0.01"
-            description="Fraction of the planets that develop life."></variable>
+                <tr variable name="fl" min="0" max="1" step="0.01"
+                description="Fraction of the planets that develop life."></tr>
 
-            <variable name="fi" min="0" max="1" step="0.01"
-            description="Fraction of planets that develop intelligent life."></variable>
+                <tr variable name="fi" min="0" max="1" step="0.01"
+                description="Fraction of planets that develop intelligent life."></tr>
 
-            <variable name="fc" min="0" max="1" step="0.01"
-            description="Fraction of civilizations that develop a technology that emits signals through space."></variable>
+                <tr variable name="fc" min="0" max="1" step="0.01"
+                description="Fraction of civilizations that develop a technology that emits signals through space."></tr>
 
-            <variable name="L" min="0" max="5000" step="100"
-            description="Length of time in Earth years for which these civilizations emit detectable signals."></variable>
-
+                <tr variable name="L" min="0" max="5000" step="100"
+                description="Length of time in Earth years for which these civilizations emit detectable signals."></tr>
+            </table>
             <h2>{{N(R*n*fp*fl*fi*fc*L)}}</h2>
         </div>
     </main>
