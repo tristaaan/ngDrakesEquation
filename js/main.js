@@ -20,15 +20,15 @@ app.controller('equationController', ['$scope', '$timeout', function($scope, $ti
     $scope.N = function(n){
         n = Math.round(n);
 
-        if (!isNaN(n) && background.activated){
+        if (!isNaN(n) && background.ready){
             background.update(n);
         }
-        else if (!background.activated){
+        else if (!background.ready){
             background.activate(n);
         }
 
         if (n == 0){
-            return "Life should be impossible, we are a fluke.";
+            return "Life is impossible.";
         }
         else if (n == 1){
             return "We are alone in our galaxy.";

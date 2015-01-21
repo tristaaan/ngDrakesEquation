@@ -17,6 +17,9 @@ main{
     h1, h2{
         color: white;
     }
+    h2{
+        width: 100%;
+    }
 }
 
 table{
@@ -35,11 +38,26 @@ table{
                 font-weight: bold;
                 font-size: 1.2em;
             }
-            input{ 
+            input[type="range"]{ 
+                -webkit-appearance: none;
                 display: block;
-                width: @input-slider-width;
                 margin-left: (100% - @input-slider-width) / 2;
                 margin-bottom: 8px;
+                width: @input-slider-width;
+                height: 8px;
+                box-shadow: inset 1px 1px 3px rgba(0,0,0,0.6);
+            }
+            input[type="range"]:focus{
+                border: none;
+            }
+            input[type="range"]::-webkit-slider-thumb{
+                -webkit-appearance: none;
+                width: 25px;
+                height: 20px;
+                border: 1px solid gray;
+                border-radius: 30px;
+                background: #eee;
+                box-shadow: 2px 4px 3px rgba(0,0,0,0.6);
             }
         }
 

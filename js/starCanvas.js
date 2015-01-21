@@ -1,10 +1,10 @@
 var starCanvas = function(){ 
-  var my = {activated: false};
+  var my = {ready: false};
   var canvas, ctx, W, H;
 
   var spaceBackground = '#222';
-  var activeColor = '#fff';
-  var dimColor = '#555'; 
+  var activeColors = ['#FFFFFF', '#FFDFDC', '#C0D9DF', '#F2F1E6'];
+  var dimColors = ['#555', '#444', '#333']; 
 
   //for star spacing on a grid
   var xSpacing, xSpacing, starXCount, starYCount;
@@ -30,13 +30,14 @@ var starCanvas = function(){
     for(var i=0; i <= starXCount; i++){
       stars.push([]);
       for(var j=0; j <= starYCount; j++){
-        stars[i].push({x: randInt(W), 
-                       y: randInt(H), 
-                       //x: i*xSpacing, //for grid spacin, nice for debugging
-                       //y: j*ySpacing,
-                       active: false,
-                       size: randInt(2)+1
-                      });
+        stars[i].push({
+          x: randInt(W), 
+          y: randInt(H), 
+          //x: i*xSpacing, //for grid spacin, nice for debugging
+          //y: j*ySpacing,
+          active: false,
+          size: randInt(2)+1
+        });
       }
     }
     drawAllStars();
@@ -64,7 +65,7 @@ var starCanvas = function(){
     for (var i=0; i < count; i++){
       activateSingle();
     }
-    my.activated = true;
+    my.ready = true;
   }
 
   //draw all the stars dimmed, this should only be called once from 'init()'
@@ -80,10 +81,10 @@ var starCanvas = function(){
   function drawSingle(i, j){
     var size = stars[i][j].size;
     if(stars[i][j].active){
-      ctx.fillStyle = activeColor;
+      ctx.fillStyle = randomColor(activeColors);
     }
     else{
-      ctx.fillStyle = dimColor;
+      ctx.fillStyle = randomColor(dimColors);
     }
     ctx.fillRect(stars[i][j].x, stars[i][j].y, size, size);
   }
@@ -112,6 +113,11 @@ var starCanvas = function(){
 
   function randInt(upper){
     return Math.floor(Math.random() * upper);
+  }
+
+  function randomColor(arr){
+    var index = randInt(arr.length);
+    return arr[index];
   }
 
   return my;
