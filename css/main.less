@@ -1,23 +1,36 @@
 @input-slider-width: 90%;
 @input-slider-width-mobile: 110%;
+@table-alpha: 0.1;
+
+canvas{
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+}
 
 main{
     margin: 0px auto;
+    position: relative;
     text-align: center;
     font-family: 'Helvetica', 'Arial', sans-serif;
+    h1, h2{
+        color: white;
+    }
 }
 
 table{
     border-collapse: collapse;
     margin: 0px auto;
-    background-color: white;
+    background-color: rgba(255, 255, 255, @table-alpha);
     tr{
         td{
             border-width: 1px;
             border-style: solid;
-            border-color: gray;
+            border-color: white;
             padding: 1.2em;
             text-align: center;
+            color: white;
             em{
                 font-weight: bold;
                 font-size: 1.2em;
@@ -37,7 +50,7 @@ table{
 
         td:first-child{
             font-family: serif;
-            background-color: #eee;
+            background-color: rgba(200, 200, 200, @table-alpha);
         }
     }
 }
@@ -57,6 +70,6 @@ table{
         padding: 1em 0;
         position: fixed;
         bottom: 0;
-        background-color: rgba(255,255,255,0.8);
+        background-color: rgba(255,255,255,@table-alpha+0.1);
     }
 }

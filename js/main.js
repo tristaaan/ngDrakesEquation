@@ -4,6 +4,8 @@ var app = angular.module('DrakeEquation', []);
 
 app.controller('equationController', ['$scope', '$timeout', function($scope, $timeout){
 
+    var background = new starCanvas();
+
     function init(){
         $scope.R = 7;
         $scope.fp = 0.4;
@@ -12,10 +14,19 @@ app.controller('equationController', ['$scope', '$timeout', function($scope, $ti
         $scope.fi = 0.1;
         $scope.fc = 0.1;
         $scope.L = 400;
+        background.init();
     };
 
     $scope.N = function(n){
         n = Math.round(n);
+
+        if (!isNaN(n) && background.activated){
+            background.update(n);
+        }
+        else if (!background.activated){
+            background.activate(n);
+        }
+
         if (n == 0){
             return "Life should be impossible, we are a fluke.";
         }
