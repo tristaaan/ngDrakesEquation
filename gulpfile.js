@@ -17,7 +17,7 @@ gulp.task('reload', function(){
     browserSync.reload();
 });
 
-gulp.task('serve', function() {
+gulp.task('serve', ['less'], function() {
     browserSync({
         server: {
             baseDir: '.'

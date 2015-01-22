@@ -1,6 +1,7 @@
 @input-slider-width: 90%;
 @input-slider-width-mobile: 110%;
 @table-alpha: 0.1;
+@text-color: rgb(250, 250, 250);
 
 canvas{
     position: absolute;
@@ -13,9 +14,9 @@ main{
     margin: 0px auto;
     position: relative;
     text-align: center;
-    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-family: sans-serif;
     h1, h2{
-        color: white;
+        color: @text-color;
     }
     h2{
         width: 100%;
@@ -27,46 +28,85 @@ table{
     margin: 0px auto;
     background-color: rgba(255, 255, 255, @table-alpha);
     tr{
+        // cool, but not great on mobile
+        // opacity: 0.2;
+        // &:hover{
+        //     opacity: 1.0;
+        // }
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        border-top: 1px solid gray;
+        &:first-child{
+            border: none;
+        }
         td{
-            border-width: 1px;
-            border-style: solid;
-            border-color: white;
-            padding: 1.2em;
+            padding: 1.2em 1.2em 1em;
             text-align: center;
-            color: white;
+            color: @text-color;
             em{
                 font-weight: bold;
                 font-size: 1.2em;
             }
+
+            @slider-track: {
+                height: 8px;
+                box-shadow: inset 1px 1px 3px rgba(0,0,0,0.6);
+                background-color: rgb(200,200,200);
+                border-radius: 3px;
+            };
+
             input[type="range"]{ 
                 -webkit-appearance: none;
                 display: block;
                 margin-left: (100% - @input-slider-width) / 2;
-                margin-bottom: 8px;
+                margin-bottom: 1.3em;
                 width: @input-slider-width;
-                height: 8px;
-                box-shadow: inset 1px 1px 3px rgba(0,0,0,0.6);
+                @slider-track();
             }
-            input[type="range"]:focus{
-                border: none;
+
+            input[type="range"]::-moz-range-track{
+                -moz-appearance: none;
+                @slider-track();
             }
-            input[type="range"]::-webkit-slider-thumb{
+
+            input[type="range"]::-ms-track{
+                -ms-appearance: none;
+                @slider-track();
+            }
+
+            @slider-thumb: {
                 -webkit-appearance: none;
+                -moz-appearance: none;
                 width: 25px;
                 height: 20px;
                 border: 1px solid gray;
                 border-radius: 30px;
                 background: #eee;
                 box-shadow: 2px 4px 3px rgba(0,0,0,0.6);
+            };
+
+            input[type="range"]{
+                &::-webkit-slider-thumb{
+                    @slider-thumb();
+                }
+                &::-moz-range-thumb{
+                   @slider-thumb(); 
+                }
+                &::-ms-thumb{
+                    @slider-thumb();
+                }
+            }
+
+            input[type="range"]:focus{
+                outline: none;
             }
         }
 
         td:first-child, td:last-child{
-            width: 2em;
+            max-width: 2em;
+            min-width: 2em;
             text-align: center;
-        }
-
-        td:first-child{
             font-family: serif;
             background-color: rgba(200, 200, 200, @table-alpha);
         }
