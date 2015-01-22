@@ -1,0 +1,124 @@
+canvas {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+}
+main {
+  margin: 0px auto;
+  position: relative;
+  text-align: center;
+  font-family: sans-serif;
+}
+main h1,
+main h2 {
+  color: #fafafa;
+}
+main h2 {
+  width: 100%;
+}
+table {
+  border-collapse: collapse;
+  margin: 0px auto;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+table tr {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  border-top: 1px solid gray;
+}
+table tr:first-child {
+  border: none;
+}
+table tr td {
+  padding: 1.2em 1.2em 1em;
+  text-align: center;
+  color: #fafafa;
+}
+table tr td em {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+table tr td input[type="range"] {
+  -webkit-appearance: none;
+  display: block;
+  margin-left: 5%;
+  margin-bottom: 1.3em;
+  width: 90%;
+  height: 8px;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.6);
+  background-color: #c8c8c8;
+  border-radius: 3px;
+}
+table tr td input[type="range"]::-moz-range-track {
+  -moz-appearance: none;
+  height: 8px;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.6);
+  background-color: #c8c8c8;
+  border-radius: 3px;
+}
+table tr td input[type="range"]::-ms-track {
+  -ms-appearance: none;
+  height: 8px;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.6);
+  background-color: #c8c8c8;
+  border-radius: 3px;
+}
+table tr td input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 25px;
+  height: 20px;
+  border: 1px solid gray;
+  border-radius: 30px;
+  background: #eee;
+  box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.6);
+}
+table tr td input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 25px;
+  height: 20px;
+  border: 1px solid gray;
+  border-radius: 30px;
+  background: #eee;
+  box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.6);
+}
+table tr td input[type="range"]::-ms-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 25px;
+  height: 20px;
+  border: 1px solid gray;
+  border-radius: 30px;
+  background: #eee;
+  box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.6);
+}
+table tr td input[type="range"]:focus {
+  outline: none;
+}
+table tr td:first-child,
+table tr td:last-child {
+  max-width: 2em;
+  min-width: 2em;
+  text-align: center;
+  font-family: serif;
+  background-color: rgba(200, 200, 200, 0.1);
+}
+@media screen and (max-width: 400px) {
+  table {
+    margin-bottom: 120px;
+  }
+  table tr td input {
+    width: 110%;
+    margin-left: -5%;
+  }
+  h2 {
+    margin: 0;
+    padding: 1em 0;
+    position: fixed;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
