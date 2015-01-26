@@ -2,17 +2,18 @@ var starCanvas = function(){
   var my = {ready: false};
   var canvas, ctx, W, H;
 
-  var spaceBackground = '#222';
-  var activeColors = ['#FFFFFF', '#FFDFDC', '#C0D9DF', '#F2F1E6'];
-  var dimColors = ['#555', '#444', '#333']; 
+  var spaceBackgroundStart = '#181818';
+  var spaceBackgroundEnd   = '#333349'; //dark blue
+  var activeColors = ['#FFFFFF', '#FFDFDC', '#C0D9DF', '#F5F5E0']; //white, light red/blue/yellow
+  var dimColors    = ['#555560', '#444444', '#333340']; //dark blue, gray, darker blue 
 
   //for star spacing on a grid
   var xSpacing, xSpacing, starXCount, starYCount;
 
-  var stars = [];
+  var stars     = [];
   var activated = [];
 
-  //initialize the drawing canvas and the stars
+  //initialize the drawing canvas and stars' data
   my.init = function(){
     canvas = document.getElementsByTagName('canvas')[0];
     ctx = canvas.getContext('2d');
@@ -23,9 +24,13 @@ var starCanvas = function(){
     ySpacing = xSpacing;
     starXCount = Math.floor(W/xSpacing);
     starYCount = Math.floor(H/ySpacing);
+    ctx.rect(0, 0, W, H);
 
-    ctx.fillStyle = spaceBackground;
-    ctx.fillRect(0, 0, W, H);
+    var gradient = ctx.createLinearGradient(W/2, 0, W/2, H);
+    gradient.addColorStop(0, spaceBackgroundStart); 
+    gradient.addColorStop(1, spaceBackgroundEnd);
+    ctx.fillStyle = gradient;
+    ctx.fill();
 
     for(var i=0; i <= starXCount; i++){
       stars.push([]);
@@ -33,7 +38,7 @@ var starCanvas = function(){
         stars[i].push({
           x: randInt(W), 
           y: randInt(H), 
-          //x: i*xSpacing, //for grid spacin, nice for debugging
+          //x: i*xSpacing, //for grid spacing, nice for debugging
           //y: j*ySpacing,
           active: false,
           size: randInt(2)+1
